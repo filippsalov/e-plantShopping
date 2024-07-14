@@ -5,8 +5,9 @@ import addItem from './CreatSlice.jsx';
 import cart from './CreatSlice.jsx';
 function ProductList() {
 
-    const count = cart.length;
     const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items); // Obtener items del carrito del store
+    const count = cartItems.length; // Contar los items en el carrito
     const [addedToCart, setAddedToCart] = useState({});
 
     const handleAddToCart = (product) => {
@@ -290,11 +291,10 @@ function ProductList() {
                                     <button
                                         className="product-button"
                                         style={{
-                                            backgroundColor: `${addedToCart.includes(plant.name) ? 'gray' : ''}`
+                                            backgroundColor: `${addedToCart.plant ? 'gray' : ''}`
                                         }}
                                         onClick={() => handleAddToCart(plant)}>
-                                        {addedToCart.includes(plant.name) ? 'Added' : 'Add'} to
-                                        Cart
+                                        {addedToCart.plant ? 'Added' : 'Add'} to Cart
                                     </button>
                                 </div>
                             ))}
