@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ProductList.css';
-import addItem from './CreatSlice.jsx';
-import cart from './CreatSlice.jsx';
+import {addItem} from './CreatSlice.jsx';
+
+
 function ProductList() {
 
     const dispatch = useDispatch();
@@ -291,10 +292,10 @@ function ProductList() {
                                     <button
                                         className="product-button"
                                         style={{
-                                            backgroundColor: `${addedToCart.plant ? 'gray' : ''}`
+                                            backgroundColor: `${addedToCart[plant.name] ? 'gray' : ''}`
                                         }}
                                         onClick={() => handleAddToCart(plant)}>
-                                        {addedToCart.plant ? 'Added' : 'Add'} to Cart
+                                        {addedToCart[plant.name] ? 'Added' : 'Add'} to Cart
                                     </button>
                                 </div>
                             ))}
