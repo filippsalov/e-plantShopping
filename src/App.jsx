@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import ProductList from './ProductList';
+import Navbar from './Navbar';
 import './App.css';
 import AboutUs from './AboutUs';
 
@@ -32,13 +34,12 @@ function App() {
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList />
+        <Navbar />
       </div>
     </div>
   );
 }
 
 export default App;
-
 
 
